@@ -2,11 +2,13 @@ import os
 from dotenv import load_dotenv
 
 from flask_sqlalchemy import SQLAlchemy
-from sqlAlchemy import ForeignKey
+from sqlalchemy import ForeignKey
 from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy.orm import mapped_column
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import relationship
+
+from typing import List
 
 
 class Base(DeclarativeBase):
