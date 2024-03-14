@@ -1,1 +1,2 @@
-from loanflask import app
+from loanflask import create_app
+app = create_app()
