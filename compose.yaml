@@ -4,7 +4,13 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: /run/secrets/db_pass
+      - MYSQL_DATABASE=task
+      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db_pass
+    healthcheck:
+      test: ['CMD-SHELL', 'mysqladmin ping -h 127.0.0.1 --password="$$(cat /run/secrets/db-password)" --silent']
+      interval: 3s
+      retries: 2
+      start_period: 30s
     secrets:
       - db_pass
 secrets:
