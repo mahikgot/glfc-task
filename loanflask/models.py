@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import ForeignKey
+from sqlalchemy.types import String
 from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy.orm import mapped_column
 from sqlalchemy.orm import Mapped
@@ -19,7 +20,7 @@ class User(db.Model):
     __tablename__ = "users"
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    name: Mapped[str] = mapped_column(unique=True)
+    name: Mapped[str] = mapped_column(String(255), unique=True)
     loans: Mapped[List["Loan"]] = relationship(cascade="all, delete")
 
 class Loan(db.Model):
@@ -27,4 +28,3 @@ class Loan(db.Model):
 
     id: Mapped[int] = mapped_column(primary_key=True)
     user_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
-
