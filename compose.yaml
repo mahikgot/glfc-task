@@ -1,0 +1,12 @@
+services:
+  db:
+    image: "mysql:8.0-debian"
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: /run/secrets/db_pass
+    secrets:
+      - db_pass
+secrets:
+  db_pass:
+    file: ./secrets/db_pass.txt
