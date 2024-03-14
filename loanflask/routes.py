@@ -1,10 +1,11 @@
-from flask import request
-from loanflask import app, db
-from loanflask.models import User, Loan
+from flask import request, Blueprint
+from loanflask.models import User, Loan, db
 from loanflask.validation import RequestSchema
 from marshmallow import ValidationError
 
-@app.post('/loan')
+loan_bp = Blueprint("loan_bp", __name__)
+
+@loan_bp.post('/loan')
 def loan():
     if not request.is_json:
         return "415 Unsupported Media Type", 415
@@ -12,5 +13,5 @@ def loan():
         result = RequestSchema().load(request.json)
     except ValidationError as err:
         return err.messages, 400
-    return data
+    return result
 
