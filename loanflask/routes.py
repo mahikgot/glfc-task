@@ -33,6 +33,7 @@ def loan():
             "Loan Term": loan.term,
             "Total Sum of Payments": loan.amount+totalInterest
             }
+    res = {k: round(v,2) for k, v in res.items()}
 
 
     return res
