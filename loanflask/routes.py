@@ -10,8 +10,15 @@ def loan():
     if not request.is_json:
         return "415 Unsupported Media Type", 415
     try:
-        result = RequestSchema().load(request.json)
+        newUser, loan = RequestSchema().load(request.json)
+        user = db.session.query(User).filter_by(name=newUser.name).first()
+        if user == None:
+            user = newUser
+            db.session.add(user)
+        user.loans.append(loan)
+        db.session.add(loan)
+        db.session.commit()
     except ValidationError as err:
         return err.messages, 400
-    return result
+    return "Success", 200
 

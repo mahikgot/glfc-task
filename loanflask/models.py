@@ -27,4 +27,6 @@ class Loan(db.Model):
     __tablename__ = "loans"
 
     id: Mapped[int] = mapped_column(primary_key=True)
+    amount: Mapped[int] = mapped_column()
+    term: Mapped[int] = mapped_column()
     user_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
