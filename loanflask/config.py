@@ -20,10 +20,9 @@ class ProductionConfig(Config):
     SQLALCHEMY_ECHO = False
 
 class DevelopmentConfig(Config):
-    DEBUG = True
+    pass
 
 class TestingConfig(Config):
-    DEBUG = True
     TESTING = True
 
 config = {
