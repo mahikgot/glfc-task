@@ -13,6 +13,21 @@ Mark Guiang
 ```$ python wsgi.py``` on localhost:5000
 ### Test
 ```$ python -m pytest /tests```
+
+
+## API Information
+- Method: POST
+- Request Body (JSON):
+  - ```name```
+  - ```amount```: The desired loan amount. Min:```1000```, Max:```10000```.
+  - ```term```: The loan term. Possible values: ```[3,6,9,12,15,18]```
+- Response Body (JSON(:
+  - ```Principal Loan Amount```
+  - ```Monthly Payment Amount```
+  - ```Total Interest Amount```
+  - ```Loan Term```
+  - ```Total Sum of Payments```
+ 
 ## How to use
 ```
 $ curl -X POST \
