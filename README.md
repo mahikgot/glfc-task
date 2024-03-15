@@ -21,7 +21,7 @@ Mark Guiang
   - ```name```
   - ```amount```: The desired loan amount. Min:```1000```, Max:```10000```.
   - ```term```: The loan term. Possible values: ```[3,6,9,12,15,18]```
-- Response Body (JSON(:
+- Response Body (JSON):
   - ```Principal Loan Amount```
   - ```Monthly Payment Amount```
   - ```Total Interest Amount```
