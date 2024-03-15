@@ -25,13 +25,14 @@ def loan():
 
     r = .02
     monthlyPayment = (loan.amount * r*((1+r)**loan.term)) / (((1+r)**loan.term)-1)
-    totalInterest  = monthlyPayment * loan.term
+    totalSum = monthlyPayment * loan.term
+    totalInterest = totalSum - loan.amount
     res = {
             "Principal Loan Amount": loan.amount,
             "Monthly Payment Amount": monthlyPayment,
             "Total Interest Amount": totalInterest,
             "Loan Term": loan.term,
-            "Total Sum of Payments": loan.amount+totalInterest
+            "Total Sum of Payments": totalSum
             }
     res = {k: round(v,2) for k, v in res.items()}
 
