@@ -3,13 +3,12 @@ import os
 from dotenv import load_dotenv
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase
+from loanflask.config import config
 
 
-def create_app():
-    load_dotenv()
+def create_app(config_name):
     app = Flask(__name__)
-    #app.config.from_object(config_object)
-    app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DB_URI")
+    app.config.from_object(config[config_name])
 
     from loanflask.models import db
     db.init_app(app)
