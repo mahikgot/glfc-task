@@ -6,3 +6,4 @@ SQLAlchemy==2.0.28
 gunicorn==21.2.0
 pymysql==1.1.0
 cryptography==42.0.5
+pytest==8.1.1
