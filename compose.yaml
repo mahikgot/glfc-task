@@ -1,8 +1,20 @@
 services:
+  app:
+    build: .
+    ports:
+      - "80:80"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      - INSTANCE_HOST=db
+      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db_pass
+    secrets:
+      - db_pass
   db:
     image: "mysql:8.0-debian"
     ports:
-      - "3306:3306"
+      - ":3306"
     environment:
       - MYSQL_DATABASE=task
       - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db_pass
