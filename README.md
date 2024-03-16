@@ -32,6 +32,6 @@ Mark Guiang
 ```
 $ curl -X POST \
 -H "Content-Type: application/json" \
--d '{"name":"mark","amount":"10000""term":"12"}' \
+-d '{"name":"mark","amount":"10000","term":"12"}' \
 http://localhost:80/loan
 ```
