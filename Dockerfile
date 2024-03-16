@@ -4,4 +4,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY ./loanflask ./loanflask
 COPY ./wsgi.py ./wsgi.py
 
-CMD ["gunicorn", "--bind", "0.0.0.0:80", "wsgi:create_app('production')"]
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "wsgi:create_app('production')"]
