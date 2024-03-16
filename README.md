@@ -36,8 +36,8 @@ Mark Guiang
     -d '{"name":"mark","amount":"10000","term":"12"}' \
     http://localhost:80/loan
   ```
-- Export data (TSV)
+- Export data to out.tsv
   ```
   $ docker compose exec db bash -c "MYSQL_PWD=\$(cat /run/secrets/db_pass) mysql -u root --database task --batch \
-    -e 'select users.name, loans.amount, loans.term from users inner join loans on users.id = loans.user_id'"
+    -e 'select users.name, loans.amount, loans.term from users inner join loans on users.id = loans.user_id'" > out.tsv
   ```
