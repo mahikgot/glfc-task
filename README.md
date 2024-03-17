@@ -3,12 +3,14 @@ Mark Guiang
 ## Prerequisites
 - Docker
 - Python >= 3.8, run these **ONLY** if you want to run test/dev build
-  - <code>$ python -m pip install -r ./loanflask/requirements.txt</code>
-  - ```$ docker compose -f compose-db-only.yaml up```
+  - ```$ python -m venv env```
+  - ```$ source env/bin/activate```
+  - ```$ python -m pip install -r ./loanflask/requirements.txt```
+  - ```$ docker compose -f compose-db-only.yaml up --detach```
 
 ## How to run
 ### Production Build
-```$ docker compose up``` would run and expose app on localhost:80
+```$ docker compose up --detach``` would run and expose app on localhost:80
 ### Dev Build
 ```$ python wsgi.py``` on localhost:5000
 ### Test
