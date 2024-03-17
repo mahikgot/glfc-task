@@ -2,7 +2,7 @@
 Mark Guiang
 ## Prerequisites
 - Docker
-- Python >= 3.8, **ONLY** if you want to run test/dev build
+- Python >= 3.8, run these **ONLY** if you want to run test/dev build
   - <code>$ python -m pip install -r ./loanflask/requirements.txt</code>
   - ```$ docker compose -f compose-db-only.yaml up```
 
@@ -12,7 +12,7 @@ Mark Guiang
 ### Dev Build
 ```$ python wsgi.py``` on localhost:5000
 ### Test
-```$ python -m pytest /tests```
+```$ python -m pytest ./tests```
 
 
 ## API Information
