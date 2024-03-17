@@ -41,3 +41,7 @@ Mark Guiang
   $ docker compose exec db bash -c "MYSQL_PWD=\$(cat /run/secrets/db_pass) mysql -u root --database task --batch \
     -e 'select users.name, loans.amount, loans.term from users inner join loans on users.id = loans.user_id'" > out.tsv
   ```
+
+
+## Notes 
+  - mysql root password for production is in ```secrets/db_pass.txt``` hehe, dont actually include it in version control
